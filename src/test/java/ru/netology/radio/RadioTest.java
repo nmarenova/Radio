@@ -9,18 +9,21 @@ class RadioTest {
     public void shoulCreateRadio() {
         Radio radio = new Radio();
     }
+
     @Test
     public void shouldInitFieldToZeroValues() {
         Radio radio = new Radio();
         assertEquals(0, radio.station);
         assertEquals(0, radio.volume);
     }
+
     @Test
     public void shouldSwitchToNextStation() {
         Radio radio = new Radio();
         radio.nextStation();
         assertEquals(1, radio.station);
     }
+
     @Test
     public void shouldSwitchToZeroStation() {
         Radio radio = new Radio();
@@ -28,21 +31,45 @@ class RadioTest {
         radio.nextStation();
         assertEquals(0, radio.station);
     }
+
     @Test
-    public void shouldSwitchToPrevStation() {
+    public void shouldSwitchToPrevStationFromZero() {
         Radio radio = new Radio();
         radio.prevStation();
         assertEquals(9, radio.station);
+
+    }
+
+    @Test
+    public void shouldSwitchToPrevStation() {
+        Radio radio = new Radio();
+        radio.station = 9;
         radio.prevStation();
         assertEquals(8, radio.station);
     }
+
     @Test
-    public void shouldSwitchToSetStation() {
+    public void shouldSwitchToSetStationTooBig() {
         Radio radio = new Radio();
         radio.setStation(15);
         assertEquals(0, radio.station);
-        radio.setStation(8);
-        assertEquals(8, radio.station);
+
+    }
+
+    @Test
+    public void shouldSwitchToSetStationTooSmall() {
+        Radio radio = new Radio();
+        radio.setStation(-7);
+        assertEquals(0, radio.station);
+
+    }
+
+    @Test
+    public void shouldSwitchToSetStation() {
+        Radio radio = new Radio();
+        radio.setStation(4);
+        assertEquals(4, radio.station);
+
     }
 
     @Test
@@ -51,6 +78,7 @@ class RadioTest {
         radio.increaseVolume();
         assertEquals(1, radio.volume);
     }
+
     @Test
     public void shouldNotIncreaseVolume() {
         Radio radio = new Radio();
@@ -58,6 +86,7 @@ class RadioTest {
         radio.increaseVolume();
         assertEquals(10, radio.volume);
     }
+
     @Test
     public void shouldDecreaseVolume() {
         Radio radio = new Radio();

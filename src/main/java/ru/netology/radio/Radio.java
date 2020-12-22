@@ -20,7 +20,7 @@ public class Radio {
 
     public void setStation(int stationNumber) {
         station = stationNumber;
-        if (station > 9) {
+        if (station > 9 || station < 0) {
             station = 0;
         }
     }
