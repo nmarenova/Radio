@@ -42,10 +42,10 @@ class RadioTest {
 
     @Test
     public void shouldSwitchToPrevStation() {
-        Radio radio = new Radio();
-        radio.station = 9;
+        Radio radio = new Radio(100);
+        radio.station = 99;
         radio.prevStation();
-        assertEquals(8, radio.station);
+        assertEquals(98, radio.station);
     }
 
     @Test
@@ -82,9 +82,9 @@ class RadioTest {
     @Test
     public void shouldNotIncreaseVolume() {
         Radio radio = new Radio();
-        radio.volume = 10;
+        radio.volume = 100;
         radio.increaseVolume();
-        assertEquals(10, radio.volume);
+        assertEquals(100, radio.volume);
     }
 
     @Test
